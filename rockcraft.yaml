@@ -1,0 +1,20 @@
+name: multiple-architectures
+version: latest
+summary: A tiny rock
+description: Building a tiny rock from a bare base, with just one package
+license: Apache-2.0
+base: ubuntu@22.04
+services:
+  hello:
+    override: merge
+    command: /usr/bin/hello -g "ship it!"
+    startup: enabled
+platforms:
+  amd64:
+  s390x:
+
+parts:
+  hello:
+    plugin: nil
+    stage-packages:
+      - hello
